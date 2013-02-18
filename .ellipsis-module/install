@@ -1,3 +1,1 @@
-. "$HOME/.ellipsis/scripts/utils.sh"
-git_clone "https://github.com/zeekay/zeesh" "$HOME/.ellipsis/modules/zsh/zeesh"
-link_file "$HOME/.ellipsis/modules/zsh/zeesh" "$HOME/.zsh"
+run_installer zeesh
