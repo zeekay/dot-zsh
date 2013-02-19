@@ -1,3 +1,2 @@
-. $HOME/.utils/
 cd $HOME/.zsh
 git pull
