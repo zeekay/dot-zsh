@@ -5,10 +5,10 @@
 
 mod.install() {
     # backup existing files
-    ellipsis.backup ~/.zsh
+    ellipsis.backup $HOME/.zsh
 
     # clone zeesh
-    git.clone "https://github.com/zeekay/zeesh" ~/.zsh
+    git.clone "https://github.com/zeekay/zeesh" $HOME/.zsh
 
     # symlink files
     ellipsis.link_files "$mod_path/common"
@@ -31,15 +31,15 @@ mod.install() {
 
 mod.pull() {
     git.pull $mod_path
-    git.pull ~/.zsh
+    git.pull $HOME/.zsh
 }
 
 mod.push() {
-    git.pull $mod_path
-    git.push ~/.zsh
+    git.push $mod_path
+    git.push $HOME/.zsh
 }
 
 mod.status() {
-    git.pull $mod_path
-    git.status ~/.zsh
+    git.status $mod_path
+    git.status $HOME/.zsh
 }
