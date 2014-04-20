@@ -1,5 +1,6 @@
 # dot-zsh
-Default [zsh][zsh] configuration provided with ellipsis.
+Default [zsh][zsh] dotfiles provided by [ellipsis][ellipsis] and my personal
+setup.
 
 ## Install
 Clone and symlink or install with [ellipsis][ellipsis]:
