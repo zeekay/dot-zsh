@@ -6,14 +6,13 @@
 mod.install() {
     # backup existing files
     ellipsis.backup ~/.zsh
-    ellipsis.backup ~/.zshrc
-    ellipsis.backup ~/.zshenv
 
     # clone zeesh
     git.clone "https://github.com/zeekay/zeesh" ~/.zsh
 
     # symlink files
-    ln -s $mod_path/common/zshenv ~/.zsh/env
+    ellipsis.link_files "$mod_path/common"
+
     case "$(ellipsis.platform)" in
         darwin)
             ellipsis.link_files "$mod_path/platform/osx"
