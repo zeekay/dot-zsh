@@ -14,7 +14,7 @@ mod.install() {
 
     # symlink files
     ln -s $mod_path/common/zshenv ~/.zsh/env
-    case "$(ellipsis.platform)"
+    case "$(ellipsis.platform)" in
         darwin)
             ellipsis.link_files "$mod_path/platform/osx"
             ;;
