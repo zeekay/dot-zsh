@@ -97,9 +97,3 @@ export PATH=$PATH:/usr/local/Cellar/go/1.2/libexec/bin:/usr/local/cuda/bin:$GOPA
 alias hd='noglob hoodoo'
 alias ack=ag
 alias cask='brew cask'
-
-if [ -f /usr/loca/opt/autoenv/activate.sh ]; then
-    source /usr/local/opt/autoenv/activate.sh
-fi
-
-alias cake=shortcake
