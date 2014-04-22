@@ -13,7 +13,7 @@ mod.install() {
     # symlink files
     ellipsis.link_files "$mod_path/common"
 
-    case "$(ellipsis.platform)" in
+    case "$(utils.platform)" in
         darwin)
             ellipsis.link_files "$mod_path/platform/osx"
             ;;
