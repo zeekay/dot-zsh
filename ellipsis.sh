@@ -31,15 +31,18 @@ pkg.install() {
 
 pkg.pull() {
     git.pull $PKG_PATH
+    cd $HOME/.zsh
     git.pull $HOME/.zsh
 }
 
 pkg.push() {
     git.push $PKG_PATH
+    cd $HOME/.zsh
     git.push $HOME/.zsh
 }
 
 pkg.status() {
     git.status $PKG_PATH
+    cd $HOME/.zsh
     git.status $HOME/.zsh
 }
