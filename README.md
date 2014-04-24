@@ -10,7 +10,7 @@ jumbo. You'll probably want to disable the vim keybindings xD
 Clone and symlink or install with [ellipsis][ellipsis]:
 
 ```
-$ ellipsis install zsh
+$ ellipsis install zeekay/dot-zsh
 ```
 
 [ellipsis]: http://ellipsis.sh
