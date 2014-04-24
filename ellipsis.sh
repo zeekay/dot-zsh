@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-# ellipsis-zsh
-#   ellipsis.sh module that install a zeesh-based zsh configuration.
+# zeekay/dot-zsh
+# My zeesh-based zsh configuration.
 
 pkg.install() {
     # backup existing files
