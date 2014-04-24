@@ -3,43 +3,43 @@
 # ellipsis-zsh
 #   ellipsis.sh module that install a zeesh-based zsh configuration.
 
-mod.install() {
+pkg.install() {
     # backup existing files
     ellipsis.backup $HOME/.zsh
 
     # clone zeesh
-    git.clone "https://github.com/zeekay/zeesh" $HOME/.zsh
+    git.clone git://github.com/zeekay/zeesh.git $HOME/.zsh
 
     # symlink files
-    ellipsis.link_files "$mod_path/common"
+    ellipsis.link_files "$PKG_PATH/common"
 
     case "$(utils.platform)" in
         darwin)
-            ellipsis.link_files "$mod_path/platform/osx"
+            ellipsis.link_files "$PKG_PATH/platform/osx"
             ;;
         freebsd)
-            ellipsis.link_files "$mod_path/platform/freebsd"
+            ellipsis.link_files "$PKG_PATH/platform/freebsd"
             ;;
         linux)
-            ellipsis.link_files "$mod_path/platform/linux"
+            ellipsis.link_files "$PKG_PATH/platform/linux"
             ;;
         cygwin*)
-            ellipsis.link_files "$mod_path/platform/cygwin"
+            ellipsis.link_files "$PKG_PATH/platform/cygwin"
             ;;
     esac
 }
 
-mod.pull() {
-    git.pull $mod_path
+pkg.pull() {
+    git.pull $PKG_PATH
     git.pull $HOME/.zsh
 }
 
-mod.push() {
-    git.push $mod_path
+pkg.push() {
+    git.push $PKG_PATH
     git.push $HOME/.zsh
 }
 
-mod.status() {
-    git.status $mod_path
+pkg.status() {
+    git.status $PKG_PATH
     git.status $HOME/.zsh
 }
