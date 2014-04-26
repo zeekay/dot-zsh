@@ -33,16 +33,30 @@ pkg.pull() {
     git.pull $PKG_PATH
     cd $HOME/.zsh
     git.pull $HOME/.zsh
+
+    for lib in $HOME/.zsh/plugins/*/lib; do
+        cd $lib
+        git.pull $lib
+    done
 }
 
 pkg.push() {
     git.push $PKG_PATH
     cd $HOME/.zsh
-    git.push $HOME/.zsh
+
+    for lib in $HOME/.zsh/plugins/*/lib; do
+        cd $lib
+        git.push $lib
+    done
 }
 
 pkg.status() {
     git.status $PKG_PATH
     cd $HOME/.zsh
     git.status $HOME/.zsh
+
+    for lib in $HOME/.zsh/plugins/*/lib; do
+        cd $lib
+        git.status $lib
+    done
 }
