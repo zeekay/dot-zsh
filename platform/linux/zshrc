@@ -21,10 +21,8 @@ export PATH=~/.bin:~/.ellipsis/bin:$PATH
 alias utc='date -u'
 alias v=vim
 alias sl=ls
-alias el=ellipsis
 alias clj='lein repl'
-
-compctl -k "(new edit install uninstall unlink list links pull push status publish search)" ellipsis
+alias el=ellipsis
 
 if [ -e ~/.private/zsh ]; then
     source ~/.private/zsh
