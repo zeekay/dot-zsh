@@ -16,16 +16,16 @@ export ZEESH_THEME_NORMAL_CHAR='\n⊙'
 export ZEESH_THEME_VISUAL_CHAR='\n⊡'
 export ZEESH_THEME_INSERT_CHAR='\n›'
 export ZEESH_THEME_PROMPT_CHAR=
+export PATH=~/.bin:~/.ellipsis/bin:$PATH
 
 alias utc='date -u'
 alias v=vim
+alias sl=ls
+alias el=ellipsis
+alias clj='lein repl'
+
+compctl -k "(new edit install uninstall unlink list links pull push status publish search --version --help)" ellipsis
 
 if [ -e ~/.private/zsh ]; then
     source ~/.private/zsh
 fi
-
-export NODE_PATH=/usr/lib/node_modules
-export PATH=~/.ellipsis/bin:$PATH
-compctl -k "(push pull status)" ellipsis
-alias sl=ls
-alias clj='lein repl'

@@ -36,6 +36,9 @@ pkg.install() {
             ellipsis.link_files "$PKG_PATH/platform/cygwin"
             ;;
     esac
+
+    # set theme to bogart
+    echo bogart > ~/.zsh/local/theme.last
 }
 
 helper() {
