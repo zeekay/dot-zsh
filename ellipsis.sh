@@ -5,10 +5,10 @@
 
 pkg.install() {
     # backup existing files
-    ellipsis.backup $HOME/.zsh
+    ellipsis.backup ~/.zsh
 
     # clone zeesh
-    git.clone git://github.com/zeekay/zeesh.git $HOME/.zsh
+    git.clone https://github.com/zeekay/zeesh ~/.zsh
 
     # symlink files
     ellipsis.link_files "$PKG_PATH/common"
@@ -29,34 +29,29 @@ pkg.install() {
     esac
 }
 
-pkg.pull() {
-    git.pull $PKG_PATH
-    cd $HOME/.zsh
-    git.pull $HOME/.zsh
+helper() {
+    # run command for ourselves
+    $1
 
+    # run command on zeesh
+    cd ~/.zsh
+    $1
+
+    # run command for each addon
     for lib in $HOME/.zsh/plugins/*/lib; do
         cd $lib
-        git.pull $lib
+        $1
     done
+}
+
+pkg.pull() {
+    helper git.pull
 }
 
 pkg.push() {
-    git.push $PKG_PATH
-    cd $HOME/.zsh
-
-    for lib in $HOME/.zsh/plugins/*/lib; do
-        cd $lib
-        git.push $lib
-    done
+    helper git.push
 }
 
 pkg.status() {
-    git.status $PKG_PATH
-    cd $HOME/.zsh
-    git.status $HOME/.zsh
-
-    for lib in $HOME/.zsh/plugins/*/lib; do
-        cd $lib
-        git.status $lib
-    done
+    helper git.status
 }
