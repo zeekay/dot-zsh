@@ -98,3 +98,4 @@ alias hd='noglob hoodoo'
 alias ack=ag
 alias cask='brew cask'
 alias epm=ellipsis
+export ELLIPSIS_PROTO=ssh
