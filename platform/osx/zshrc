@@ -36,8 +36,6 @@ alias ack=ag
 alias cask='brew cask'
 alias el=ellipsis
 
-compctl -k "(new edit install uninstall unlink list links pull push status publish search)" ellipsis
-
 if [ -e ~/.private/zsh ]; then
     source ~/.private/zsh
 fi
