@@ -47,13 +47,20 @@ helper() {
 
     # run command on zeesh
     cd ~/.zsh
-    $1
+    $1 zeesh
 
-    # run command for each addon
-    for lib in $HOME/.zsh/plugins/*/lib; do
-        cd $lib
-        $1
-    done
+    # run command for each plugin dep
+    cd ~/.zsh/plugins/git/lib
+    $1 hub
+
+    cd ~/.zsh/plugins/vi-mode/lib
+    $1 vimpager
+
+    cd ~/.zsh/plugins/syntax-highlighting/lib
+    $1 zsh-syntax-highlighting
+
+    cd ~/.zsh/plugins/history-substring-search/lib
+    $1 zsh-history-substring-search
 }
 
 pkg.pull() {
