@@ -7,8 +7,17 @@ pkg.install() {
     # backup existing files
     ellipsis.backup ~/.zsh
 
-    # clone zeesh
-    git.clone https://github.com/zeekay/zeesh ~/.zsh
+    # clone zeesh and dependencies
+    git.clone https://github.com/zeekay/zeesh \
+        ~/.zsh
+    git.clone https://github.com/zeekay/vimpager \
+        ~/.zsh/plugins/vi-mode/lib
+    git.clone https://github.com/zeekay/hub \
+        ~/.zsh/plugins/git/lib
+    git.clone https://github.com/zsh-users/zsh-syntax-highlighting \
+        ~/.zsh/plugins/syntax-highlighting/lib
+    git.clone https://github.com/zsh-users/zsh-history-substring-search \
+        ~/.zsh/plugins/history-substring-search/lib
 
     # symlink files
     ellipsis.link_files "$PKG_PATH/common"

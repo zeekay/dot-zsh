@@ -97,5 +97,5 @@ export PATH=$PATH:/usr/local/Cellar/go/1.2/libexec/bin:/usr/local/cuda/bin:$GOPA
 alias hd='noglob hoodoo'
 alias ack=ag
 alias cask='brew cask'
-alias epm=ellipsis
+alias el=ellipsis
 export ELLIPSIS_PROTO=ssh
