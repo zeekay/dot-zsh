@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 #
-# zeekay/dot-zsh
+# zeekay/zsh
+#
 # My zeesh-based zsh configuration.
 
 pkg.install() {
     # backup existing files
-    ellipsis.backup ~/.zsh
+    fs.backup ~/.zsh
 
     # clone zeesh and dependencies
     git.clone https://github.com/zeekay/zeesh \
@@ -20,20 +21,20 @@ pkg.install() {
         ~/.zsh/plugins/history-substring-search/lib
 
     # symlink files
-    ellipsis.link_files "$PKG_PATH/common"
+    fs.link_files common
 
-    case "$(utils.platform)" in
-        darwin)
-            ellipsis.link_files "$PKG_PATH/platform/osx"
+    case $(os.platform) in
+        osx)
+            fs.link_files platform/osx
             ;;
         freebsd)
-            ellipsis.link_files "$PKG_PATH/platform/freebsd"
+            fs.link_files platform/freebsd
             ;;
         linux)
-            ellipsis.link_files "$PKG_PATH/platform/linux"
+            fs.link_files platform/linux
             ;;
-        cygwin*)
-            ellipsis.link_files "$PKG_PATH/platform/cygwin"
+        cygwin)
+            fs.link_files platform/cygwin
             ;;
     esac
 
@@ -72,5 +73,5 @@ pkg.push() {
 }
 
 pkg.status() {
-    helper git.status
+    helper hooks.status
 }
