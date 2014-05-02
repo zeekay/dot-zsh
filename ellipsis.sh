@@ -20,7 +20,15 @@ pkg.install() {
     git.clone https://github.com/zsh-users/zsh-history-substring-search \
         ~/.zsh/plugins/history-substring-search/lib
 
-    # symlink files
+    # set theme to bogart
+    echo bogart > ~/.zsh/local/theme.last
+
+    # manually run link hook
+    pkg.link
+}
+
+# symlink files
+pkg.link() {
     fs.link_files common
 
     case $(os.platform) in
@@ -37,9 +45,6 @@ pkg.install() {
             fs.link_files platform/cygwin
             ;;
     esac
-
-    # set theme to bogart
-    echo bogart > ~/.zsh/local/theme.last
 }
 
 helper() {
