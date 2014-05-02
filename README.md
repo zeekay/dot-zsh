@@ -1,4 +1,4 @@
-# zeekay/dot-zsh
+# zeekay/zsh
 My zsh dotfiles, compatible with [ellipsis][ellipsis].
 
 ## Features
@@ -11,7 +11,7 @@ vi-mode from the list of `zeesh_plugins` in `~/.zshrc`.
 Clone and symlink or install with [ellipsis][ellipsis]:
 
 ```
-$ ellipsis install zeekay/dot-zsh
+$ ellipsis install zeekay/zsh
 ```
 
 [ellipsis]: http://ellipsis.sh
