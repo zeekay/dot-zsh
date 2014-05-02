@@ -47,31 +47,31 @@ helper() {
     $1
 
     # run command on zeesh
-    cd ~/.zsh
-    $1 zeesh
+    cd ~/.zsh; $1 zeesh
 
     # run command for each plugin dep
-    cd ~/.zsh/plugins/git/lib
-    $1 hub
-
-    cd ~/.zsh/plugins/vi-mode/lib
-    $1 vimpager
-
-    cd ~/.zsh/plugins/syntax-highlighting/lib
-    $1 zsh-syntax-highlighting
-
-    cd ~/.zsh/plugins/history-substring-search/lib
-    $1 zsh-history-substring-search
+    cd ~/.zsh/plugins/git/lib; $1 hub
+    cd ~/.zsh/plugins/vi-mode/lib; $1 vimpager
+    cd ~/.zsh/plugins/syntax-highlighting/lib; $1 zsh-syntax-highlighting
+    cd ~/.zsh/plugins/history-substring-search/lib; $1 zsh-history-substring-search
 }
 
 pkg.pull() {
     helper git.pull
 }
 
-pkg.push() {
-    helper git.push
-}
-
 pkg.status() {
     helper hooks.status
+}
+
+pkg.push() {
+    # run command for ourselves
+    git.push
+
+    # run command on zeesh
+    cd ~/.zsh; git.push zeesh
+
+    # run command for each plugin dep we have push permissions
+    cd ~/.zsh/plugins/git/lib; git.push hub
+    cd ~/.zsh/plugins/vi-mode/lib; git.push vimpager
 }
