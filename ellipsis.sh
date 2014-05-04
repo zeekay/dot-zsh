@@ -55,10 +55,10 @@ helper() {
     cd ~/.zsh; $1 zeesh
 
     # run command for each plugin dep
-    cd ~/.zsh/plugins/git/lib; $1 hub
-    cd ~/.zsh/plugins/vi-mode/lib; $1 vimpager
-    cd ~/.zsh/plugins/syntax-highlighting/lib; $1 zsh-syntax-highlighting
-    cd ~/.zsh/plugins/history-substring-search/lib; $1 zsh-history-substring-search
+    cd ~/.zsh/plugins/git/lib; $1 zsh/hub
+    cd ~/.zsh/plugins/vi-mode/lib; $1 zsh/vimpager
+    cd ~/.zsh/plugins/syntax-highlighting/lib; $1 zsh/zsh-syntax-highlighting
+    cd ~/.zsh/plugins/history-substring-search/lib; $1 zsh/zsh-history-substring-search
 }
 
 pkg.pull() {
