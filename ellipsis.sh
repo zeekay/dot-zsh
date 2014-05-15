@@ -20,8 +20,8 @@ pkg.install() {
     git.clone https://github.com/zsh-users/zsh-history-substring-search \
         ~/.zsh/plugins/history-substring-search/lib
 
-    # set theme to bogart
-    echo bogart > ~/.zsh/local/theme.last
+    # set theme to vi-statusline
+    echo vi-statusline > ~/.zsh/local/theme.last
 
     # manually run link hook
     pkg.link
