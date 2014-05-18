@@ -61,7 +61,9 @@ helper() {
     cd ~/.zsh; $1 zeesh
 
     # run command for each plugin dep
-    cd ~/.zsh/plugins/git/lib; $1 zsh/hub
+    if [ -e ~/.zsh/plugins/git/lib ]; then
+        cd ~/.zsh/plugins/git/lib; $1 zsh/hub
+    fi
     cd ~/.zsh/plugins/vi-mode/lib; $1 zsh/vimpager
     cd ~/.zsh/plugins/syntax-highlighting/lib; $1 zsh/zsh-syntax-highlighting
     cd ~/.zsh/plugins/history-substring-search/lib; $1 zsh/zsh-history-substring-search
