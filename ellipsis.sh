@@ -4,10 +4,26 @@
 #
 # My zeesh-based zsh configuration.
 
-pkg.install() {
-    # backup existing files
-    fs.backup ~/.zsh
+pkg.link() {
+    fs.link_files common
 
+    case $(os.platform) in
+        osx)
+            fs.link_files platform/osx
+            ;;
+        freebsd)
+            fs.link_files platform/freebsd
+            ;;
+        linux)
+            fs.link_files platform/linux
+            ;;
+        cygwin)
+            fs.link_files platform/cygwin
+            ;;
+    esac
+}
+
+pkg.install() {
     # clone zeesh and dependencies
     git.clone https://github.com/zeekay/zeesh \
         ~/.zsh
@@ -28,29 +44,6 @@ pkg.install() {
     else
         echo vi-statusline-legacy > ~/.zsh/local/theme.last
     fi
-
-    # manually run link hook
-    pkg.link
-}
-
-# symlink files
-pkg.link() {
-    fs.link_files common
-
-    case $(os.platform) in
-        osx)
-            fs.link_files platform/osx
-            ;;
-        freebsd)
-            fs.link_files platform/freebsd
-            ;;
-        linux)
-            fs.link_files platform/linux
-            ;;
-        cygwin)
-            fs.link_files platform/cygwin
-            ;;
-    esac
 }
 
 helper() {
