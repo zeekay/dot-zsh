@@ -27,7 +27,7 @@ pkg.install() {
     # clone zeesh and dependencies
     git.clone https://github.com/zeekay/zeesh \
         ~/.zsh
-    git.clone https://github.com/zeekay/vimpager \
+    git.clone https://github.com/rkitover/vimpager \
         ~/.zsh/plugins/vi-mode/lib
     git.clone https://github.com/zsh-users/zsh-syntax-highlighting \
         ~/.zsh/plugins/syntax-highlighting/lib
