@@ -35,6 +35,6 @@ alias hd='noglob hoodoo'
 hash ag 2>/dev/null && alias ack=ag
 alias el=ellipsis
 
-if [ -e ~/.private/zsh ]; then
-    source ~/.private/zsh
+if [ -e ~/.zsh/local/after.zsh ]; then
+    source ~/.zsh/local/after.zsh
 fi
