@@ -10,6 +10,10 @@ vi-mode from the list of `zeesh_plugins` in `~/.zshrc`.
 ## Install
 Clone and symlink or install with [ellipsis][ellipsis]:
 
+## Customization
+#### `~/.zsh/local/after.zsh`
+Will be sourced after default zshrc.
+
 ```
 $ ellipsis install zeekay/zsh
 ```
