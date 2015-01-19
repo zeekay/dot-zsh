@@ -24,6 +24,9 @@ pkg.link() {
 }
 
 pkg.install() {
+    # Backup existing ~/.zsh
+    fs.backup ~/.zsh
+
     # clone zeesh and dependencies
     git.clone https://github.com/zeekay/zeesh \
         ~/.zsh
