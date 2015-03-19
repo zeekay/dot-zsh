@@ -30,16 +30,10 @@ pkg.install() {
     # clone zeesh and dependencies
     git.clone https://github.com/zeekay/zeesh \
         ~/.zsh
-    git.clone https://github.com/rkitover/vimpager \
-        ~/.zsh/plugins/vi-mode/lib
     git.clone https://github.com/zsh-users/zsh-syntax-highlighting \
         ~/.zsh/plugins/syntax-highlighting/lib
     git.clone https://github.com/zsh-users/zsh-history-substring-search \
         ~/.zsh/plugins/history-substring-search/lib
-
-    if utils.cmd_exists ruby; then
-        git.clone https://github.com/zeekay/hub ~/.zsh/plugins/git/lib
-    fi
 
     # Set theme to vi-statusline, or vi-statusline-legacy based on zsh version.
     if [ "$(zsh --version | grep 'zsh 5')" ]; then
