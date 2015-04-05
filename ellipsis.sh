@@ -68,10 +68,4 @@ pkg.push() {
 
     # run command on zeesh
     cd ~/.zsh; git.push zeesh
-
-    # run command for each plugin dep we have push permissions
-    if [ -e ~/.zsh/plugins/git/lib ]; then
-        cd ~/.zsh/plugins/git/lib; git.push hub
-    fi
-    cd ~/.zsh/plugins/vi-mode/lib; git.push vimpager
 }
