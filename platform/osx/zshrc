@@ -1,6 +1,7 @@
 zeesh_plugins=(
     osx
     vi-mode
+    audio
     python
     django
     virtualenv
