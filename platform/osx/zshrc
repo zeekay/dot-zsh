@@ -1,19 +1,18 @@
 zeesh_plugins=(
     osx
     vi-mode
+    git
+    mercurial
     audio
+    django
+    haskell
     javascript
     python
-    django
     virtualenv
-    haskell
-    mercurial
-    git
     vcs-info
     syntax-highlighting
     history-substring-search
     theme
-    upstart
     autocomplete
 )
 source ~/.zsh/zeesh.zsh
