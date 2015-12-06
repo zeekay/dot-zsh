@@ -19,9 +19,4 @@ export ZEESH_THEME_INSERT_CHAR='\n›'
 export ZEESH_THEME_PROMPT_CHAR=
 
 export PATH=~/.bin:~/.ellipsis/bin:$PATH
-
 alias el=ellipsis
-
-if [ -e ~/.zsh/local/after.zsh ]; then
-    source ~/.zsh/local/after.zsh
-fi
