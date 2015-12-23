@@ -37,7 +37,7 @@ pkg.install() {
 
     # Set theme to vi-statusline, or vi-statusline-legacy based on zsh version.
     if [ "$(zsh --version | grep 'zsh 5')" ]; then
-        echo vi-statusline > ~/.zsh/local/theme.last
+        echo hardcore > ~/.zsh/local/theme.last
     else
         echo vi-statusline-legacy > ~/.zsh/local/theme.last
     fi
