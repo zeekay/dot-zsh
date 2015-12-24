@@ -14,6 +14,7 @@ zeesh_plugins=(
     history-substring-search
     theme
     autocomplete
+    autoenv
 )
 source ~/.zsh/zeesh.zsh
 
