@@ -13,10 +13,5 @@ zeesh_plugins=(
 )
 source ~/.zsh/zeesh.zsh
 
-export ZEESH_THEME_NORMAL_CHAR='\n⊙'
-export ZEESH_THEME_VISUAL_CHAR='\n⊡'
-export ZEESH_THEME_INSERT_CHAR='\n›'
-export ZEESH_THEME_PROMPT_CHAR=
-
 export PATH=~/.bin:~/.ellipsis/bin:$PATH
 alias el=ellipsis
