@@ -35,7 +35,7 @@ pkg.install() {
     git.clone https://github.com/zsh-users/zsh-history-substring-search \
         ~/.zsh/plugins/history-substring-search/lib
 
-    # Set theme to vi-statusline, or vi-statusline-legacy based on zsh version.
+    # Set theme to zen or vi-statusline-legacy based on zsh version.
     if [ "$(zsh --version | grep 'zsh 5')" ]; then
         echo zen > ~/.zsh/local/theme.last
     else
@@ -49,7 +49,6 @@ helper() {
 
     # run command on zeesh
     cd ~/.zsh; $1 zeesh
-
     cd ~/.zsh/plugins/syntax-highlighting/lib; $1 zsh/zsh-syntax-highlighting
     cd ~/.zsh/plugins/history-substring-search/lib; $1 zsh/zsh-history-substring-search
 }
