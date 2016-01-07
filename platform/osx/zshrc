@@ -20,3 +20,5 @@ source ~/.zsh/zeesh.zsh
 
 export PATH=~/.bin:~/.ellipsis/bin:$PATH
 alias el=ellipsis
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
