@@ -13,6 +13,7 @@ zeesh_plugins=(
     theme
     upstart
     autocomplete
+    iterm2
 )
 source ~/.zsh/zeesh.zsh
 
