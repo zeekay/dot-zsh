@@ -10,6 +10,7 @@ zeesh_plugins=(
     history-substring-search
     theme
     autocomplete
+    iterm2
 )
 source ~/.zsh/zeesh.zsh
 
