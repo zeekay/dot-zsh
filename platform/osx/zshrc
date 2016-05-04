@@ -16,8 +16,11 @@ zeesh_plugins=(
     autocomplete
     autoenv
     iterm2
+    upstart
 )
 source ~/.zsh/zeesh.zsh
 
 export PATH=~/.bin:~/.ellipsis/bin:$PATH
 alias el=ellipsis
+
+[[ -s "/Users/zk/.gvm/scripts/gvm" ]] && source "/Users/zk/.gvm/scripts/gvm"
