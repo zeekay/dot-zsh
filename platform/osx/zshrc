@@ -5,6 +5,7 @@ zeesh_plugins=(
     mercurial
     audio
     django
+    go
     haskell
     javascript
     python
@@ -22,5 +23,3 @@ source ~/.zsh/zeesh.zsh
 
 export PATH=~/.bin:~/.ellipsis/bin:$PATH
 alias el=ellipsis
-
-[[ -s "/Users/zk/.gvm/scripts/gvm" ]] && source "/Users/zk/.gvm/scripts/gvm"
