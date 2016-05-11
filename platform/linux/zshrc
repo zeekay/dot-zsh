@@ -2,6 +2,7 @@ zeesh_plugins=(
     linux
     vi-mode
     git
+    go
     javascript
     python
     virtualenv
