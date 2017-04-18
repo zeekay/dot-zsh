@@ -36,7 +36,7 @@ pkg.install() {
         ~/.zsh/plugins/history-substring-search/lib
 
     # Set theme to zen or vi-statusline-legacy based on zsh version.
-    if [ "$(zsh --version | grep 'zsh 5')" ]; then
+    if [ $(zsh --version | grep 'zsh 5') ]; then
         echo zen > ~/.zsh/local/theme.last
     else
         echo vi-statusline-legacy > ~/.zsh/local/theme.last
