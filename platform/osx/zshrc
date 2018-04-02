@@ -18,6 +18,7 @@ zeesh_plugins=(
     autoenv
     iterm2
     upstart
+    kubernetes
 )
 source ~/.zsh/zeesh.zsh
 
