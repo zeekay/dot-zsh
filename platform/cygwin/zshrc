@@ -1,19 +1,29 @@
 zeesh_plugins=(
+    # OS-specific
     cygwin
-    vi-mode
+
+    # Enable plugins
+    autoenv
     git
-    vcs-info
-    syntax-highlighting
+    go
+    javascript
+    # kubernetes
+    python
+    virtualenv
+
+    # Fancy command line
     history-substring-search
+    syntax-highlighting
+
+    # We live and breath vim here
+    vi-mode
+
+    # Need to come last
     theme
+    vcs-info
     autocomplete
 )
 source ~/.zsh/zeesh.zsh
-
-export ZEESH_THEME_NORMAL_CHAR='\n⊙'
-export ZEESH_THEME_VISUAL_CHAR='\n⊡'
-export ZEESH_THEME_INSERT_CHAR='\n›'
-export ZEESH_THEME_PROMPT_CHAR=
 
 export PATH=~/.bin:~/.ellipsis/bin:$PATH
 alias el=ellipsis
