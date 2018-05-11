@@ -1,17 +1,27 @@
 zeesh_plugins=(
+    # OS-specific
     linux
-    vi-mode
+
+    # Enable plugins
+    autoenv
     git
     go
     javascript
+    # kubernetes
     python
     virtualenv
-    vcs-info
-    syntax-highlighting
+
+    # Fancy command line
     history-substring-search
+    syntax-highlighting
+
+    # We live and breath vim here
+    vi-mode
+
+    # Need to come last
     theme
+    vcs-info
     autocomplete
-    iterm2
 )
 source ~/.zsh/zeesh.zsh
 
