@@ -13,17 +13,17 @@ zeesh_plugins=(
     python
     virtualenv
 
-    # Enable various fancy features
-    history-substring-search
-    syntax-highlighting
-
     # We live and breath vim here
     vi-mode
 
-    # Need to come last
-    theme
-    vcs-info
+    # Fancy command line
     autocomplete
+    syntax-highlighting
+    history-substring-search
+
+    # Need to come last
+    vcs-info
+    theme
 )
 source ~/.zsh/zeesh.zsh
 
