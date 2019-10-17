@@ -13,11 +13,11 @@ zeesh_plugins=(
 
     # Various plugins
     audio
-    autoenv
+    # autoenv
     git
     go
     javascript
-    kubernetes
+    # kubernetes
     python
     virtualenv
 
