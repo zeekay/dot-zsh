@@ -3,16 +3,6 @@ zeesh_plugins=(
     osx
     iterm2
 
-    # Various plugins
-    audio
-    autoenv
-    git
-    go
-    javascript
-    # kubernetes
-    python
-    virtualenv
-
     # We live and breath vim here
     vi-mode
 
@@ -20,6 +10,16 @@ zeesh_plugins=(
     autocomplete
     syntax-highlighting
     history-substring-search
+
+    # Various plugins
+    audio
+    autoenv
+    git
+    go
+    javascript
+    kubernetes
+    python
+    virtualenv
 
     # Need to come last
     vcs-info
