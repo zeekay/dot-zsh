@@ -20,6 +20,7 @@ zeesh_plugins=(
     # kubernetes
     python
     virtualenv
+    yarn
 
     # Need to come last
     vcs-info
