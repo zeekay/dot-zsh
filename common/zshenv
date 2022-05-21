@@ -1,1 +1,2 @@
 setopt noglobalrcs
+. "$HOME/.cargo/env"
