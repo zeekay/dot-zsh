@@ -12,14 +12,14 @@ zeesh_plugins=(
     history-substring-search
 
     # Various plugins
-    # audio
+    audio
     # autoenv
     git
     # go
     # javascript
     # kubernetes
-    # python
-    # virtualenv
+    python
+    virtualenv
     # yarn
 
     # Need to come last
