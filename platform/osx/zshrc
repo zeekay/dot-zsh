@@ -21,6 +21,7 @@ zeesh_plugins=(
     python
     virtualenv
     # yarn
+    nvm
 
     # Need to come last
     # vcs-info
