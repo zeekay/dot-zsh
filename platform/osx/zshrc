@@ -25,26 +25,9 @@ zeesh_plugins=(
     # Need to come last
     vcs-info
     theme
+    starship
 )
 source ~/.zsh/zeesh.zsh
 
 export PATH=~/.bin:~/.ellipsis/bin:$PATH
 alias el=ellipsis
-
-export PATH="$PATH:/Users/z/.foundry/bin"
-
-# bun completions
-[ -s "/Users/z/.bun/_bun" ] && source "/Users/z/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="/Users/z/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-#
-#  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
