@@ -24,9 +24,10 @@ zeesh_plugins=(
     nvm
 
     # Need to come last
-    # vcs-info
-    # theme
+    vcs-info
+    theme
     starship
+    # spaceship
 )
 source ~/.zsh/zeesh.zsh
 
