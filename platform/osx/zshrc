@@ -33,3 +33,11 @@ source ~/.zsh/zeesh.zsh
 
 export PATH=~/.bin:~/.ellipsis/bin:$PATH
 alias el=ellipsis
+
+# pnpm
+export PNPM_HOME="/Users/z/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
