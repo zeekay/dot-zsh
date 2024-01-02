@@ -13,25 +13,25 @@ zeesh_plugins=(
 
     # Various plugins
     audio
-    # autoenv
+    autoenv
     git
-    # go
-    # javascript
-    # kubernetes
+    go
+    javascript
+    kubernetes
     python
     virtualenv
-    # yarn
+    yarn
     nvm
 
     # Need to come last
     vcs-info
     theme
-    # starship
-    # spaceship
+    #starship
+    #spaceship
 )
 source ~/.zsh/zeesh.zsh
 
-export PATH=~/.bin:~/.ellipsis/bin:$PATH
+export PATH=~/.bin:~/.ellipsis/bin:$PATH:~/go/bin
 alias el=ellipsis
 
 # pnpm
@@ -41,3 +41,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# bun completions
+[ -s "/Users/z/.bun/_bun" ] && source "/Users/z/.bun/_bun"
