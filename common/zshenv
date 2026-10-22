@@ -1,2 +1,19 @@
 setopt noglobalrcs
 . "$HOME/.cargo/env"
+
+
+# /tmp was a 24G tmpfs; masked tmp.mount so it is disk-backed on next boot.
+# Until then keep large Go links off RAM.
+export TMPDIR=/home/z/.cache/tmp
+
+# A glob that matches nothing is left as typed, so a URL with ? or a *.log
+# with no logs is not an error.
+setopt NO_NOMATCH
+# Agents and scripts (zsh -c, not interactive) get bash's word splitting: an
+# unquoted $var splits into words. An interactive shell keeps zsh's own rules,
+# which zeesh's functions are written for (2026-10-15 set it everywhere, and
+# pk and zeesh-prefs broke).
+[[ -o interactive ]] || setopt SH_WORD_SPLIT
+
+# agents and scripts run zsh -c: keep user toolchains on PATH there too
+for d in "$HOME/.cargo/bin" "$HOME/.local/bin" "$HOME/go/bin" /opt/homebrew/bin /usr/local/go/bin; do [ -d "$d" ] && case ":$PATH:" in *":$d:"*) ;; *) PATH="$d:$PATH";; esac; done; export PATH

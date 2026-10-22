@@ -25,5 +25,98 @@ zeesh_plugins=(
 )
 source ~/.zsh/zeesh.zsh
 
-export PATH=~/.bin:~/.ellipsis/bin:$PATH
+export PATH=~/.local/bin:~/.bin:~/.ellipsis/bin:$PATH
 alias el=ellipsis
+
+. "$HOME/.local/bin/env"
+
+# bun completions
+[ -s "/home/z/.bun/_bun" ] && source "/home/z/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# zccache: share compile artifacts ACROSS git worktrees.
+# Without this, each worktree's absolute path is baked into the cache key, so N
+# worktrees of the same repo = N full rebuilds (this is what grew ~194 GB of
+# target/ across the engine's 78 worktrees). PATH_REMAP=auto rewrites the build
+# paths (rustc --remap-path-prefix / clang -ffile-prefix-map) so the SAME crate
+# built in a different worktree is a cache HIT. sccache cannot do this.
+export ZCCACHE_PATH_REMAP=auto
+export PATH=$HOME/.npm-global/bin:$PATH
+
+# hanzo code → Hanzo zen models (api.hanzo.ai gateway catalog IDs)
+# export ANTHROPIC_MODEL='enso[1m]'
+# export ANTHROPIC_DEFAULT_HAIKU_MODEL=enso-flash
+export CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1
+
+# Go linker scratch: /tmp is a 24GB tmpfs (RAM). The linker honours TMPDIR,
+# not GOTMPDIR, so without this a big link eats ~1GB of RAM per invocation.
+export TMPDIR=/home/z/.cache/go-tmp
+mkdir -p "$TMPDIR"
+
+# One place for models. Every tool downloads here, so a weight fetched for
+# studio is the same file the engine, ollama and any script already have.
+# Old paths are symlinks into this root, so nothing needs to know it moved.
+export HANZO_MODELS=/data/models
+export HF_HOME=$HANZO_MODELS/hf          # huggingface hub + datasets
+export OLLAMA_MODELS=$HANZO_MODELS/ollama
+export TORCH_HOME=$HANZO_MODELS/torch
+export CLAUDE_CODE_MAX_SUBAGENTS_PER_SESSION=100000
+
+
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/z/.local/bin:$PATH"
+
+# right-click open-in-editor from Vite/Next dev servers (launch-editor)
+export LAUNCH_EDITOR=antigravity
+
+# Added by LM Studio CLI tool (lms)
+export PATH="$PATH:/home/z/.lmstudio/bin"
+
+# Hanzo AI Model Mesh Shell Integration
+# Plain `claude` stays on Anthropic. claude-zen, claude-spark, claude-halo and
+# claude-flash are symlinks to ~/.local/bin/claude-hanzo, which picks the model
+# from the name it was invoked by. No aliases or functions: they would shadow it.
+export PATH="$HOME/.local/bin:$PATH"
+export HANZO_ROUTER_URL="http://127.0.0.1:1235"
+unalias claude-zen claude-spark claude-halo claude-flash claude-mesh 2>/dev/null
+unfunction claude-hanzo claude-zen claude-spark claude-halo claude-flash 2>/dev/null
+alias claude-mesh='claude-hanzo'
+
+# Point plain `claude` at the cluster in this terminal only.
+use-hanzo-cluster() {
+  local route
+  route=$(hanzo-tunnel spark halo) || { echo "✗ No Hanzo router reachable" >&2; return 1; }
+  export ANTHROPIC_BASE_URL="${route#* }"
+  export ANTHROPIC_API_KEY="dummy"
+  export CLAUDE_CONFIG_DIR="$HOME/.claude-hanzo"
+  export CLAUDE_CODE_AUTO_COMPACT_WINDOW=1000000
+  export CLAUDE_CODE_SUBAGENT_MODEL="zen5-flash"
+  export CLAUDE_CODE_EFFORT_LEVEL="medium"
+  export CLAUDE_EFFORT="medium"
+  export API_TIMEOUT_MS=3600000
+  export CLAUDE_STREAM_IDLE_TIMEOUT_MS=3600000
+  export CLAUDE_BYTE_STREAM_IDLE_TIMEOUT_MS=3600000
+  export CLAUDE_STREAM_FIRST_BYTE_TIMEOUT_MS=600000
+  echo "✓ claude → $ANTHROPIC_BASE_URL (model from ~/.claude-hanzo/settings.json)"
+}
+
+use-claude-max() {
+  unset ANTHROPIC_BASE_URL ANTHROPIC_API_KEY CLAUDE_CONFIG_DIR CLAUDE_CODE_AUTO_COMPACT_WINDOW \
+    CLAUDE_CODE_SUBAGENT_MODEL API_TIMEOUT_MS CLAUDE_STREAM_IDLE_TIMEOUT_MS \
+    CLAUDE_BYTE_STREAM_IDLE_TIMEOUT_MS CLAUDE_STREAM_FIRST_BYTE_TIMEOUT_MS \
+    CLAUDE_CODE_MAX_CONTEXT_TOKENS CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT \
+    CLAUDE_CODE_EFFORT_LEVEL CLAUDE_EFFORT
+  echo "✓ claude → https://api.anthropic.com"
+}
+alias evo='ssh evo'
+alias dgx='ssh dgx'
+
+# CUDA 13.4.2 on dgx: the driver (580.178.04) cannot load 13.4's PTX 9.4; 13.4's forward-compat libcuda can.
+[ "$(hostname)" = dgx ] && [ -r "$HOME/.local/share/cuda-13.4.env" ] && . "$HOME/.local/share/cuda-13.4.env"
+
+# AI always fuckign this up
