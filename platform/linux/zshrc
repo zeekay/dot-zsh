@@ -31,7 +31,7 @@ alias el=ellipsis
 . "$HOME/.local/bin/env"
 
 # bun completions
-[ -s "/home/z/.bun/_bun" ] && source "/home/z/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -53,7 +53,8 @@ export CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1
 
 # Go linker scratch: /tmp is a 24GB tmpfs (RAM). The linker honours TMPDIR,
 # not GOTMPDIR, so without this a big link eats ~1GB of RAM per invocation.
-export TMPDIR=/home/z/.cache/go-tmp
+export TMPDIR=$HOME/.cache/go-tmp
+[ -d "$TMPDIR" ] || mkdir -p "$TMPDIR"
 mkdir -p "$TMPDIR"
 
 # One place for models. Every tool downloads here, so a weight fetched for
@@ -69,13 +70,13 @@ export CLAUDE_CODE_MAX_SUBAGENTS_PER_SESSION=100000
 
 
 # Added by Antigravity CLI installer
-export PATH="/home/z/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # right-click open-in-editor from Vite/Next dev servers (launch-editor)
 export LAUNCH_EDITOR=antigravity
 
 # Added by LM Studio CLI tool (lms)
-export PATH="$PATH:/home/z/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 
 # Hanzo AI Model Mesh Shell Integration
 # Plain `claude` stays on Anthropic. claude-zen, claude-spark, claude-halo and
