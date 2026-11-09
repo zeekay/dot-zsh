@@ -4,7 +4,8 @@ setopt noglobalrcs
 
 # /tmp was a 24G tmpfs; masked tmp.mount so it is disk-backed on next boot.
 # Until then keep large Go links off RAM.
-export TMPDIR=/home/z/.cache/tmp
+export TMPDIR=$HOME/.cache/tmp
+[ -d "$TMPDIR" ] || mkdir -p "$TMPDIR"
 
 # A glob that matches nothing is left as typed, so a URL with ? or a *.log
 # with no logs is not an error.
