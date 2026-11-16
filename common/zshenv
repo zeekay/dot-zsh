@@ -1,5 +1,5 @@
 setopt noglobalrcs
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 
 # /tmp was a 24G tmpfs; masked tmp.mount so it is disk-backed on next boot.
