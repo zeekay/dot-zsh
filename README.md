@@ -1,4 +1,7 @@
 # zeekay/zsh
+
+[![Open in Hanzo](https://hanzo.app/badges/open-in-hanzo.svg)](https://hanzo.app/dev/open?repo=github.com/zeekay/dot-zsh&ref=main&action=open) [![Edit with Hanzo](https://hanzo.app/badges/edit-with-hanzo.svg)](https://hanzo.app/dev/open?repo=github.com/zeekay/dot-zsh&ref=main&action=edit)
+
 My zsh dotfiles, compatible with [ellipsis][ellipsis].
 
 ## Features
